@@ -1,0 +1,267 @@
+<?php
+session_start();
+// Se não estiver logado, redireciona para o login
+if (!isset($_SESSION["usuario_id"])) {
+    header("Location: ../index.php");
+    exit;
+}
+?>
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--<link rel="stylesheet" href="../css/styleproject.css">-->
+	<style type="text/css">
+	/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+	color: brown;
+}
+/* Estrutura principal */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav {
+  background-color: #444;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    padding: 0.5rem 0;
+  }
+
+  header {
+    font-size: 1.2rem;
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  nav {
+    gap: 0.5rem;
+  }
+
+  .container {
+    font-size: 0.9rem;
+  }
+}
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.responsive-table th,
+.responsive-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Estilo para telas menores */
+@media (max-width: 600px) {
+  .responsive-table,
+  .responsive-table thead,
+  .responsive-table tbody,
+  .responsive-table th,
+  .responsive-table td,
+  .responsive-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .responsive-table thead tr {
+    display: none; /* Esconde cabeçalho */
+  }
+
+  .responsive-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  .responsive-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .responsive-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
+  }
+}
+/* Estilo geral do formulário */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs e textarea */
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Botão */
+form button {
+  padding: 12px;
+  background: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #0056b3;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+  form {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  form input {
+    flex: 1 1 calc(50% - 15px);
+  }
+
+  form textarea {
+    flex: 1 1 100%;
+    min-height: 120px;
+  }
+
+  form button {
+    flex: 1 1 100%;
+  }
+}
+	</style>
+<title>Salas</title>
+</head>
+<body>
+<header>
+  <h1>Importantes</h1>
+</header>
+
+<nav>
+  <p>Bem vindo, <strong><?php echo $_SESSION["primeiro_nome"]; ?></strong>, você está logado
+            </p>
+            <a href="logout.php" class="btn-logout">Sair direto</a>
+</nav>
+
+<div class="container">
+  <p>Bem-vindo ao conteúdo principal!</p>
+	<table class="responsive-table">
+  <thead>
+    <tr>
+      <th><h1>Curso de inglês instrumental</h1></th>
+      <th><a href="https://hotmart.com/pt-BR/club/instituto-marta-garcia/products/119220" target="_blank">Ir para o curso</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h1>Gran Cursos</h1></td>
+		<td><a href="https://www.grancursosonline.com.br/identificacao" target="_blank">Ir para o curso</a></td>
+    </tr>
+    <tr>
+      <td><h1>Plataforma sucupira</h1></td>
+      <td><a href="https://sucupira-v2.capes.gov.br/#busca_avaliados_reconhecidos" target="_blank">Ir para o curso</a></td>
+    </tr>
+    <tr>
+      <td>Carla</td>
+      <td><a href="">Ir para o curso</a></td>
+    </tr>
+	  
+	<tr>
+      <td>Ana</td>
+      <td><a href="">Ir para o curso</a></td>
+    </tr>
+    <tr>
+      <td>Bruno</td>
+      <td><a href="">Ir para o curso</a></td>
+    </tr>
+    <tr>
+      <td>Carla</td>
+      <td><a href="">Ir para o curso</a></td>
+    </tr>
+	  
+	<tr>
+      <td>Ana</td>
+      <td><a href="">Ir para o curso</a></td>
+    </tr>
+    <tr>
+      <td>Bruno</td>
+      <td><a href="">Ir para o curso</a></td>
+    </tr>
+    <tr>
+      <td>Carla</td>
+      <td><a href="">Ir para o curso</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>
