@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$usuario = "recebimento_ureia";
-$senha = "Senador@21#";
+$usuario = "root";
+$senha = "";
 $banco = "importantes";
 $conn = new mysqli($host, $usuario, $senha, $banco);
 
@@ -11,3 +11,4 @@ if ($conn->connect_error) {
 
 
 ?>
+
